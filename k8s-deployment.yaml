@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: restaurant-deployment
+  name: restaurant-deployment1
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: restaurant
+      app: restaurant1
   template:
     metadata:
       labels:
-        app: restaurant
+        app: restaurant1
     spec:
       containers:
-      - name: restaurant
-        image: yourdockerhubusername/royalrasoi
+      - name: restaurant1
+        image: kavyav549/restaurant-site
         ports:
         - containerPort: 80
