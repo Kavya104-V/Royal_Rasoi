@@ -15,7 +15,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    bat 'docker build -t $IMAGE_NAME .'
+                    // Windows-specific environment variable expansion for bat
+                    bat "docker build -t %IMAGE_NAME% ."
                 }
             }
         }
@@ -28,8 +29,9 @@ pipeline {
                   passwordVariable: 'DOCKER_PASS'
                 )]) {
                     script {
-                        sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-                        sh 'docker push $IMAGE_NAME'
+                        // Use bat to log in to Docker Hub
+                        bat 'echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin'
+                        bat "docker push %IMAGE_NAME%"
                     }
                 }
             }
@@ -38,8 +40,9 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    sh 'kubectl apply -f k8s-deployment.yaml'
-                    sh 'kubectl apply -f k8s-service.yaml'
+                    // Use bat to run kubectl commands
+                    bat 'kubectl apply -f k8s-deployment.yaml'
+                    bat 'kubectl apply -f k8s-service.yaml'
                 }
             }
         }
