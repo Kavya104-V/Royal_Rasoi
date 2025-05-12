@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'yourdockerhubusername/royalrasoi'
+        IMAGE_NAME = 'kavyav549/royalrasoi'
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/yourusername/royalrasoi.git'
+                git 'https://github.com/Kavya104-V/Royal_Rasoi, credentialsId: 'github-creds'
             }
         }
 
