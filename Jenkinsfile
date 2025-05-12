@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     // Windows-specific environment variable expansion for bat
-                    bat "docker build -t %IMAGE_NAME% ."
+                    bat "docker build -t ${IMAGE_NAME} ."
                 }
             }
         }
@@ -31,7 +31,7 @@ pipeline {
                     script {
                         // Use bat to log in to Docker Hub
                         bat 'echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin'
-                        bat "docker push %IMAGE_NAME%"
+                        bat "docker push ${IMAGE_NAME}"
                     }
                 }
             }
