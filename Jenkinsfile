@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Kavya104-V/Royal_Rasoi, credentialsId: 'github-creds'
+                git url: 'https://github.com/Kavya104-V/Royal_Rasoi.git', credentialsId: 'github-creds'
             }
         }
 
