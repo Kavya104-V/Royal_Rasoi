@@ -3,7 +3,10 @@ pipeline {
 
     environment {
         IMAGE_NAME = 'kavyav549/restaurant-site'
+          KUBECONFIG = 'C:\ProgramData\Jenkins\.kube\config'
+          
     }
+
 
     stages {
         stage('Clone Repository') {
