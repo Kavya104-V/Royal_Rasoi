@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'kavyav549/restaurant-site'
+        IMAGE_NAME = 'kavyav549/restaurant-site:latest'
          KUBECONFIG = 'C:\\ProgramData\\Jenkins\\.kube\\config'
 
           
