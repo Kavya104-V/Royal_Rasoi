@@ -45,8 +45,8 @@ pipeline {
             steps {
                 script {
                     // Use bat to run kubectl commands
-                    bat 'kubectl apply -f k8s-deployment.yaml'
-                    bat 'kubectl apply -f k8s-service.yaml'
+                    bat 'kubectl apply -f k8s-deployment.yaml --validate=false'
+                    bat 'kubectl apply -f k8s-service.yaml --validate=false'
                 }
             }
         }
