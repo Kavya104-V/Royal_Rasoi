@@ -46,6 +46,8 @@ pipeline {
                 script {
                     // Use bat to run kubectl commands
                     bat 'kubectl apply -f k8s-deployment.yaml --validate=false'
+                    bat 'kubectl rollout restart deployment restaurant-deployment1'
+
                     bat 'kubectl apply -f k8s-service.yaml --validate=false'
                 }
             }
